@@ -28,4 +28,12 @@ class ProStagesController extends AbstractController
         '<html><body><h1>Cette page affichera la liste des formations de l\'IUT</h1></body></html>'
         );
     }
+
+    public function stages(string $id): Response
+    {
+        return new Response(
+        "<html><body><h1>Cette page affichera le descriptif du stage ayant pour identifiant $id </h1></body></html>"
+        );
+    }
+
 }
