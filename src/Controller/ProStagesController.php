@@ -23,7 +23,7 @@ class ProStagesController extends AbstractController
         return $this->render('pro_stages/formations.html.twig');
     }
 
-    public function stages(string $id): Response
+    public function stages($id): Response
     {
         return $this->render('pro_stages/stages.html.twig',
         ['id' => $id]);
