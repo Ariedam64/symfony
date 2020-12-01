@@ -8,13 +8,24 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ProStagesController extends AbstractController
 {
-    /**
-     * @Route("/", name="proStages_accueil")
-     */
     public function index(): Response
     {
-        return $this->render('pro_stages/index.html.twig', [
-            'controller_name' => 'ProStagesController',
-        ]);
+        return new Response(
+        '<html><body><h1>Bienvenue sur la page d\'accueil de ProStages</h1></body></html>'
+        );
+    }
+
+    public function entreprises(): Response
+    {
+        return new Response(
+        '<html><body><h1>Cette page affichera la liste des entreprises proposant un stage</h1></body></html>'
+        );
+    }
+
+    public function formations(): Response
+    {
+        return new Response(
+        '<html><body><h1>Cette page affichera la liste des formations de l\'IUT</h1></body></html>'
+        );
     }
 }
