@@ -12,14 +12,58 @@
 
     </head>
     <body>
-        {% block page %}
+      {% block titre %}
+      <div class="container-fluid">
+        <div class="row">
+		        <div class="col-md-12">
+			           <h3>
+				               ProStages
+			           </h3>
+		        </div>
+	      </div>
         {% endblock %}
 
         {% block menu %}
-        <h1>--------------Menu--------------</h1>
+        <div class="row">
+
+        		<div class="col-md-12">
+        			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<i class="icon-filter-1"></i>
+        				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        					<span class="navbar-toggler-icon"></span>
+
+        				</button> <a class="navbar-brand" href="/">  Tout voir</a>
+        				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        					<ul class="navbar-nav">
+        						<li class="nav-item active">
+        							 <a class="nav-link" href="/entreprises">Entreprises</a>
+        						</li>
+        						<li class="nav-item">
+        							 <a class="nav-link" href="/formations">Formations</a>
+        						</li>
+
+        					</ul>
+        				</div>
+        			</nav>
+        		</div>
+        	</div>
         {% endblock %}
 
         {% block contenu %}
+        <div class="row" style="margin-top:15px;">
+		<div class="col-md-12">
+			<div class="card">
+				<h5 class="card-header">
+					{% block titreStage %}
+          Stages disponibles
+          {% endblock %}
+				</h5>
+				<div class="card-body">
+          {% block contenuStage %}{% endblock %}
+				</div>
+			</div>
+		</div>
+	</div>
         {% endblock %}
 
         {% block javascripts %}
@@ -27,6 +71,6 @@
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
         {% endblock %}
-
+      </div>
     </body>
 </html>

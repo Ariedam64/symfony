@@ -1,36 +1,41 @@
 {% extends 'base.html.twig' %}
 
-
-
-{% block page %}
-<h1>Bienvenue sur la page d'accueil de ProStages</h1>
-{% endblock %}
-{% block menu %}
-<i class="icon-filter-1"> </i>
-<ul>
-  <li>
-      <a href="{{path('ProStages_entreprises')}}">Filtré par Entreprises</a>
-  </li>
-  <li>
-      <a href="{{path('ProStages_formations')}}">Filtré par Formations</a>
-  </li>
-</ul>
+{% block titre %}
+<h3>ProStages | Accueil</h3>
 {% endblock %}
 
-{% block contenu %}
-<h2>Liste de stage</h2>
+{% block contenuStage %}
 
+<div class="card-deck">
+  <div class="card">
 
+    <div class="card-body">
+      <h5 class="card-title">Développement d'IA</h5>
+      <p class="card-text">Exakis Nelite, entité du groupe Magellan Partners, est le premier partenaire pure-player Microsoft indépendant en France avec l’ambition de devenir le premier partenaire Européen et en Afrique Francophone avec sa forte présence au Maroc.Nés du rapprochement de 2 leaders spécialistes de...</p>
+    </div>
+  </div>
+  <div class="card">
 
-<ul>
-  <li>
-    <a href="{{path('ProStages_stages',{id:"Data Analyst"})}}">Data Analyst</a>
-  </li>
-  <li>
-    <a href="{{path('ProStages_stages',{id:"Pompier"})}}">Pompier</a>
-  </li>
-  <li>
-    <a href="{{path('ProStages_stages',{id:"Mathematicien"})}}">Mathematicien</a>
-  </li>
-</ul>
+    <div class="card-body">
+      <h5 class="card-title">Développeur Web</h5>
+      <p class="card-text">En relation avec le gérant du magasin, la mission de ce stage est de rendre le site vitrine de l'entreprise "responsive" la rémunération est a discuter avec le stagiaire. Vous êtes intéressé(e) par cette opportunité de stage, merci de postuler rapidement depuis cette annonce</p>
+    </div>
+  </div>
+  <div class="card">
+
+    <div class="card-body">
+      <h5 class="card-title">Robotique</h5>
+      <p class="card-text">Le domaine de la robotique mobile industrielle vous intéresse ? Vous souhaitez mettre en pratique des compétences et acquérir de l'expérience dans le domaine d'équipements robotisés ? Nos solutions de robot autonome intra-logistique répondent à une demande croissante de technologie en robotique et d’automatisation en France ainsi qu’à travers le reste du continent européen...</p>
+    </div>
+  </div>
+  <div class="card">
+
+    <div class="card-body">
+      <h5 class="card-title">Domotique</h5>
+      <p class="card-text">Dans le cadre de sa campagne de stage, ArianeGroup recrute un Technicien / Ingénieur en Informatique outil domotique (H/F).Au sein de l'unité de production Préfal en charge du montage de sous-ensembles de grande taille (3-4m), nous vous confions le développement d'un moyen de supervision...</p>
+    </div>
+  </div>
+
+</div>
+
 {% endblock %}
