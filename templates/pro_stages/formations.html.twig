@@ -1,5 +1,36 @@
 {% extends 'base.html.twig' %}
 
 {% block titre %}
-<h3> ProStages | Stages par formations</h3>
+<h3> ProStages | Trié par Formations</h3>
+{% endblock %}
+{% block titreStage %}
+Formations proposant des stages
+{% endblock %}
+
+{% block contenuSupp %}
+<div class="card-deck">
+  <div class="card">
+
+    <div class="card-body">
+      <h5 class="card-title">DUT Informatique</h5>
+      <p class="card-text"></p>
+      <p class="card-text">Le BUT informatique est un diplôme de grade licence qui prépare aux métiers de l’informatique tout en répondant aux exigences des entreprises.</p>
+      <p class="card-text">Stages proposé : </p>
+      <ul>
+        <li>
+            <a href="\stages\Domotique">Domotique</a>
+        </li>
+        <li>
+            <a href="\stages\Robotique">Robotique</a>
+        </li>
+        <li>
+            <a href="\stages\Développement d'IA">Développement d'IA</a>
+        </li>
+        <li>
+            <a href="\stages\Développeur Web">Développeur Web</a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
 {% endblock %}

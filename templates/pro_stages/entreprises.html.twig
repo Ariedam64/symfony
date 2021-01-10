@@ -1,5 +1,66 @@
 {% extends 'base.html.twig' %}
 
 {% block titre %}
-<h3> ProStages | Stages par entreprises</h3>
+<h3> ProStages | Trié par Entreprises</h3>
+{% endblock %}
+
+{% block titreStage %}
+Entreprises proposant des stages
+{% endblock %}
+
+{% block contenuSupp %}
+<div class="card-deck">
+  <div class="card">
+
+    <div class="card-body">
+      <h5 class="card-title">SERIEL</h5>
+      <p class="card-text"></p>
+      <p class="card-text">Domaine Informatique</p>
+      <p class="card-text">55 avenue Fourchu, 64600 Anglet</p>
+      <p class="card-text">Stages proposé : </p>
+      <ul>
+        <li>
+            <a href="\stages\Domotique">Domotique</a>
+        </li>
+        <li>
+            <a href="\stages\Robotique">Robotique</a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+  <div class="card-deck">
+    <div class="card">
+
+      <div class="card-body">
+        <h5 class="card-title">LABILO</h5>
+        <p class="card-text"></p>
+        <p class="card-text">Domaine Informatique</p>
+        <p class="card-text">1 rue Gos, 64100 Bayonne</p>
+        <p class="card-text">Stages proposé : </p>
+        <ul>
+          <li>
+              <a href="\stages\Développement d'IA">Développement d'IA</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+    <div class="card-deck">
+      <div class="card">
+
+        <div class="card-body">
+          <h5 class="card-title">NOIZBO</h5>
+          <p class="card-text"></p>
+          <p class="card-text">Domaine Informatique</p>
+          <p class="card-text">2 rue saint-Vincent, 64270 Salies-de-Béarn</p>
+          <p class="card-text">Stages proposé : </p>
+          <ul>
+            <li>
+                <a href="\stages\Développeur Web">Développeur Web</a>
+            </li>
+          </ul>
+
+        </div>
+      </div>
 {% endblock %}

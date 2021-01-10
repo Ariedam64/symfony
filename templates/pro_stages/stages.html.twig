@@ -1,1 +1,32 @@
 {% extends 'base.html.twig' %}
+
+{% block titre %}
+<h3> ProStages | Stage </h3>
+{% endblock %}
+
+{% block titreStage %}
+Information - {{id}}
+{% endblock %}
+
+{% block contenuSupp %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <dl>
+        <dt>
+          Mission
+        </dt>
+        <dd>
+          Une description de la mission...
+        </dd>
+        <dt>
+          Adresse Mail
+        </dt>
+        <dd>
+          example@gmail.com
+        </dd>
+      </dl>
+    </div>
+  </div>
+</div>
+{% endblock %}
