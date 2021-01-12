@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block titreStage %}
-Information - {{id}}
+Information - {{stage.intitule}}
 {% endblock %}
 
 {% block contenuSupp %}
@@ -17,13 +17,25 @@ Information - {{id}}
           Mission
         </dt>
         <dd>
-          Une description de la mission...
+          {{stage.mission}}
         </dd>
         <dt>
           Adresse Mail
         </dt>
         <dd>
-          example@gmail.com
+          {{stage.adresseMail}}
+        </dd>
+        <dt>
+          Entreprise proposant le stage
+        </dt>
+        <dd>
+          vide pour le moment
+        </dd>
+        <dt>
+          Formation proposant le stage
+        </dt>
+        <dd>
+          vide pour le moment
         </dd>
       </dl>
     </div>
