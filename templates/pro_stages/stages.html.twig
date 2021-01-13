@@ -34,9 +34,13 @@ Information - {{stage.intitule}}
         <dt>
           Formation proposant le stage
         </dt>
-        <dd>
-          vide pour le moment
-        </dd>
+
+        {% for formation in stage.getFormation %}
+          {{formation.nom}}
+          {% if loop.last == false %}
+          ,
+          {% endif %}
+      {% endfor %}
       </dl>
     </div>
   </div>
