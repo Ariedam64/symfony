@@ -6,6 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Stage;
+use App\Entity\Formation;
+use App\Entity\Entreprise;
+//use App\Controller\ProStagesController;
 
 class ProStagesController extends AbstractController
 {
@@ -21,12 +24,21 @@ class ProStagesController extends AbstractController
 
     public function entreprises(): Response
     {
-        return $this->render('pro_stages/entreprises.html.twig');
+
+      $repositoryEntreprises = $this->getDoctrine()->getRepository(Entreprise::class);
+
+      $entreprises =  $repositoryEntreprises->findAll();
+
+        return $this->render('pro_stages/entreprises.html.twig',['entreprises'=>$entreprises]);
     }
 
     public function formations(): Response
     {
-        return $this->render('pro_stages/formations.html.twig');
+      $repositoryFormations = $this->getDoctrine()->getRepository(Formation::class);
+
+      $formations =  $repositoryFormations->findAll();
+
+      return $this->render('pro_stages/formations.html.twig', ['formations'=>$formations]);
     }
 
     public function stages($id): Response
@@ -34,6 +46,7 @@ class ProStagesController extends AbstractController
       $repositoryStage = $this->getDoctrine()->getRepository(Stage::class);
 
       $stage =  $repositoryStage->find($id);
+
 
         return $this->render('pro_stages/stages.html.twig',['stage' => $stage]);
     }

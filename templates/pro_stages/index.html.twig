@@ -12,7 +12,7 @@
   <div class="card">
 
     <div class="card-body">
-      <h5 class="card-title"><a href="\stages\{{stageCourant.id}}">{{stageCourant.intitule}}</a></h5>
+      <h5 class="card-title"><a href={{path('ProStages_stages',{id:stageCourant.id})}}>{{stageCourant.intitule}}</a></h5>
       <p class="card-text">{{stageCourant.mission}}</p>
     </div>
   </div>

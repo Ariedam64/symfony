@@ -10,13 +10,16 @@ Entreprises proposant des stages
 
 {% block contenuSupp %}
 <div class="card-deck">
+
+  {% for entrepriseCourant in entreprises %}
+
   <div class="card">
 
     <div class="card-body">
-      <h5 class="card-title">SERIEL</h5>
+      <h5 class="card-title">{{entrepriseCourant.getNom}}</h5>
       <p class="card-text"></p>
-      <p class="card-text">Domaine Informatique</p>
-      <p class="card-text">55 avenue Fourchu, 64600 Anglet</p>
+      <p class="card-text">{{entrepriseCourant.getActivite}}</p>
+      <p class="card-text">{{entrepriseCourant.getAdresse}}</p>
       <p class="card-text">Stages proposé : </p>
       <ul>
         <li>
@@ -26,41 +29,7 @@ Entreprises proposant des stages
             <a href="\stages\Robotique">Robotique</a>
         </li>
       </ul>
-
-    </div>
   </div>
-  <div class="card-deck">
-    <div class="card">
-
-      <div class="card-body">
-        <h5 class="card-title">LABILO</h5>
-        <p class="card-text"></p>
-        <p class="card-text">Domaine Informatique</p>
-        <p class="card-text">1 rue Gos, 64100 Bayonne</p>
-        <p class="card-text">Stages proposé : </p>
-        <ul>
-          <li>
-              <a href="\stages\Développement d'IA">Développement d'IA</a>
-          </li>
-        </ul>
-
-      </div>
-    </div>
-    <div class="card-deck">
-      <div class="card">
-
-        <div class="card-body">
-          <h5 class="card-title">NOIZBO</h5>
-          <p class="card-text"></p>
-          <p class="card-text">Domaine Informatique</p>
-          <p class="card-text">2 rue saint-Vincent, 64270 Salies-de-Béarn</p>
-          <p class="card-text">Stages proposé : </p>
-          <ul>
-            <li>
-                <a href="\stages\Développeur Web">Développeur Web</a>
-            </li>
-          </ul>
-
-        </div>
-      </div>
+  {% endfor %}
+  </div>
 {% endblock %}
