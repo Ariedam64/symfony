@@ -19,22 +19,19 @@ Formations proposant des stages
       <p class="card-text">{{formationCourante.getDescription}}</p>
       <p class="card-text">Stages proposé : </p>
       <ul>
-        <li>
-            <a href="\stages\Domotique">Domotique</a>
-        </li>
-        <li>
-            <a href="\stages\Robotique">Robotique</a>
-        </li>
-        <li>
-            <a href="\stages\Développement d'IA">Développement d'IA</a>
-        </li>
-        <li>
-            <a href="\stages\Développeur Web">Développeur Web</a>
-        </li>
+      {% if formationCourante.stages|length > 0 %}
+        {% for stage in formationCourante.stages %}
+          <li>
+            <a href={{path('ProStages_stages',{id:stage.id})}}>{{stage.intitule}}</a>
+          </li>
+        {% endfor %}
+        {% else %}
+          <li>
+            Aucune
+          </li>
+        {% endif %}
       </ul>
-
     </div>
     {% endfor %}
   </div>
-
 {% endblock %}
