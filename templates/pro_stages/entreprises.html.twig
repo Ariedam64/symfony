@@ -22,14 +22,20 @@ Entreprises proposant des stages
       <p class="card-text">{{entrepriseCourant.getAdresse}}</p>
       <p class="card-text">Stages proposé : </p>
       <ul>
-        <li>
-            <a href="\stages\Domotique">Domotique</a>
-        </li>
-        <li>
-            <a href="\stages\Robotique">Robotique</a>
-        </li>
+      {% if entrepriseCourant.stages|length > 0 %}
+        {% for stage in entrepriseCourant.stages %}
+          <li>
+            <a href={{path('ProStages_stages',{id:stage.id})}}>{{stage.intitule}}</a>
+          </li>
+        {% endfor %}
+      {% else %}
+          <li>
+              <b>Aucun</b>
+          </li>
+      {% endif %}
       </ul>
-  </div>
+     </div>
+    </div>
   {% endfor %}
-  </div>
+ </div>
 {% endblock %}

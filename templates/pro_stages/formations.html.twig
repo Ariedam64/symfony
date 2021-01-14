@@ -11,12 +11,12 @@ Formations proposant des stages
 
 
 <div class="card-deck">
+  {% for formationCourante in formations %}
   <div class="card">
-
     <div class="card-body">
-      <h5 class="card-title">DUT Informatique</h5>
+      <h5 class="card-title">{{formationCourante.getNom}}</h5>
       <p class="card-text"></p>
-      <p class="card-text">Le BUT informatique est un diplôme de grade licence qui prépare aux métiers de l’informatique tout en répondant aux exigences des entreprises.</p>
+      <p class="card-text">{{formationCourante.getDescription}}</p>
       <p class="card-text">Stages proposé : </p>
       <ul>
         <li>
@@ -34,6 +34,7 @@ Formations proposant des stages
       </ul>
 
     </div>
+    {% endfor %}
   </div>
 
 {% endblock %}

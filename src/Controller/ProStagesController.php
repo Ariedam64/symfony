@@ -29,6 +29,7 @@ class ProStagesController extends AbstractController
 
       $entreprises =  $repositoryEntreprises->findAll();
 
+
         return $this->render('pro_stages/entreprises.html.twig',['entreprises'=>$entreprises]);
     }
 
