@@ -8,6 +8,10 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Stage;
 use App\Entity\Formation;
 use App\Entity\Entreprise;
+use Doctrine\Persistence\ObjectManager;
+use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Persistence\ManagerRegistry;
+
 //use App\Controller\ProStagesController;
 
 class ProStagesController extends AbstractController
@@ -22,7 +26,7 @@ class ProStagesController extends AbstractController
         return $this->render('pro_stages/index.html.twig',['stages'=>$stages]);
     }
 
-    public function ajouterEntreprise()
+    public function ajouterEntreprise(Request $request, ManagerRegistry $manager)
     {
         //Création d'une entreprise qui sera remplie par le formulaire
         $entreprise = new Entreprise();
@@ -33,20 +37,20 @@ class ProStagesController extends AbstractController
         ->add('activite')
         ->add('adresse')
         ->getForm();
-/*
+
         $formulaireEntreprise->handleRequest($request);
 
         if ($formulaireEntreprise->isSubmitted()){
 
             //Enregister la ressource en base de donnéelse
-            $manager->persist($entreprise);
-            $manager->flush();
+            $manager->getManager()->persist($entreprise);
+            $manager->getManager()->flush();
 
             //Rediriger l'utilisateur vers la page d'accueil
-            return this->redirectToRoute('ProStages_index');
+            return $this->redirectToRoute('ProStages_index');
 
         }
-*/
+
         //Ajouter la page présentant le formulaire d'ajout d'une entreprise
         return $this->render('pro_stages/ajouterEntreprise.html.twig',['vueFormulaire' => $formulaireEntreprise->createView()]);
     }
