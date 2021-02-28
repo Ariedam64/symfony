@@ -1,7 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block titre %}
+{% if action == "ajouter" %}
 <h3>ProStages | Ajouter une Entreprise</h3>
+{% else %}
+<h3>ProStages | Modifier une Entreprise</h3>
+{% endif %}
 {% endblock %}
 
 {% block titreStage %}
@@ -21,7 +25,11 @@ Formulaire
 <label> Adresse </label>
 {{form_widget(vueFormulaire.adresse, {'attr':{'placeholder':"Adresse de l'entreprise..."}})}}
 
-<br><button type="submit" class="btn btn-dark">Ajouter</button>
+{% if action == "ajouter" %}
+<br><button type="submit" class="btn btn-dark">Ajouter l'entreprise</button>
+{% else %}
+<br><button type="submit" class="btn btn-dark">Enregistrer les modifications</button>
+{% endif %}
 
 {{form_end(vueFormulaire)}}
 {% endblock %}

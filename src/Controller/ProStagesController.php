@@ -52,7 +52,34 @@ class ProStagesController extends AbstractController
         }
 
         //Ajouter la page présentant le formulaire d'ajout d'une entreprise
-        return $this->render('pro_stages/ajouterEntreprise.html.twig',['vueFormulaire' => $formulaireEntreprise->createView()]);
+        return $this->render('pro_stages/ajoutModifEntreprise.html.twig',['vueFormulaire' => $formulaireEntreprise->createView(), 'action'=>"ajouter"]);
+    }
+
+    public function modifierEntreprise(Request $request, ManagerRegistry $manager, Entreprise $entreprise)
+    {
+
+        //Création du formulaire permattant de saisir une entreprise
+        $formulaireEntreprise = $this->createFormBuilder($entreprise)
+        ->add('nom')
+        ->add('activite')
+        ->add('adresse')
+        ->getForm();
+
+        $formulaireEntreprise->handleRequest($request);
+
+        if ($formulaireEntreprise->isSubmitted()){
+
+            //Enregister la ressource en base de donnéelse
+            $manager->getManager()->persist($entreprise);
+            $manager->getManager()->flush();
+
+            //Rediriger l'utilisateur vers la page d'accueil
+            return $this->redirectToRoute('ProStages_index');
+
+        }
+
+        //Ajouter la page présentant le formulaire d'ajout d'une entreprise
+        return $this->render('pro_stages/ajoutModifEntreprise.html.twig',['vueFormulaire' => $formulaireEntreprise->createView(), 'action'=>"modifier"]);
     }
 
     public function entreprises(): Response

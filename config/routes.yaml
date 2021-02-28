@@ -17,3 +17,7 @@ ProStages_stages:
 ProStages_ajoutEntreprise:
     path: /entreprises/ajouter
     controller: App\Controller\ProStagesController::ajouterEntreprise
+
+ProStages_modifierEntreprise:
+    path: /entreprises/modifier/{id}
+    controller: App\Controller\ProStagesController::modifierEntreprise
