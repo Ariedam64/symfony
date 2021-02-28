@@ -9,5 +9,19 @@ Formulaire
 {% endblock %}
 
 {% block contenuSupp %}
-Oui
+
+{{form_start(vueFormulaire)}}
+
+<label> Nom </label>
+{{form_widget(vueFormulaire.nom, {'attr':{'placeholder':"Titre de l'entreprise..."}})}}
+
+<label> Activite </label>
+{{form_widget(vueFormulaire.activite, {'attr':{'placeholder':"Activité de l'entreprise..."}})}}
+
+<label> Adresse </label>
+{{form_widget(vueFormulaire.adresse, {'attr':{'placeholder':"Adresse de l'entreprise..."}})}}
+
+<br><button type="submit" class="btn btn-dark">Ajouter</button>
+
+{{form_end(vueFormulaire)}}
 {% endblock %}
