@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block titre %}
+<h3> ProStages | Trié par Entreprises</h3>
+{% endblock %}
+
+{% block titreStage %}
+Entreprises proposant des stages
+{% endblock %}
+
+{% block contenuSupp %}
+<div class="card-deck">
+
+  {% for entrepriseCourant in entreprises %}
+
+  <div class="card">
+
+    <div class="card-body">
+      <h5 class="card-title">{{entrepriseCourant.getNom}}</h5>
+      <p class="card-text"></p>
+      <p class="card-text">{{entrepriseCourant.getActivite}}</p>
+      <p class="card-text">{{entrepriseCourant.getAdresse}}</p>
+      <p class="card-text">Stages proposé : </p>
+      <ul>
+      {% if entrepriseCourant.stages|length > 0 %}
+        {% for stage in entrepriseCourant.stages %}
+          <li>
+            <a href={{path('ProStages_stages',{id:stage.id})}}>{{stage.intitule}}</a>
+          </li>
+        {% endfor %}
+      {% else %}
+          <li>
+              <b>Aucun</b>
+          </li>
+      {% endif %}
+      </ul>
+     </div>
+    </div>
+  {% endfor %}
+ </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+ProStages_index:
+    path: /
+    controller: App\Controller\ProStagesController::index
+
+ProStages_entreprises:
+    path: /entreprises
+    controller: App\Controller\ProStagesController::entreprises
+
+ProStages_formations:
+    path: /formations
+    controller: App\Controller\ProStagesController::formations
+
+ProStages_stages:
+    path: /stages/{id}
+    controller: App\Controller\ProStagesController::stages
+
+ProStages_ajoutEntreprise:
+    path: /entreprises/ajouter
+    controller: App\Controller\ProStagesController::ajouterEntreprise

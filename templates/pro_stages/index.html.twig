@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block titre %}
+<h3>ProStages | Accueil</h3>
+{% endblock %}
+
+{% block contenuSupp %}
+
+
+<div class="card-deck">
+{% for stageCourant in stages %}
+  <div class="card">
+
+    <div class="card-body">
+      <h5 class="card-title"><a href={{path('ProStages_stages',{id:stageCourant.id})}}>{{stageCourant.intitule}}</a></h5>
+      <p class="card-text">{{stageCourant.mission}}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+
+{% endblock %}
