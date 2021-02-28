@@ -37,7 +37,7 @@ class ProStagesController extends AbstractController
 
         $formulaireEntreprise->handleRequest($request);
 
-        if ($formulaireEntreprise->isSubmitted()){
+        if ($formulaireEntreprise->isSubmitted() && $formulaireEntreprise->isValid()){
 
             //Enregister la ressource en base de donnéelse
             $manager->getManager()->persist($entreprise);

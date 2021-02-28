@@ -14,7 +14,7 @@ Formulaire
 
 {% block contenuSupp %}
 
-{{form_start(vueFormulaire)}}
+{{form_start(vueFormulaire, {'attr':{'novalidate':'novalidate'}})}}
 
 <label> Nom </label>
 {{form_widget(vueFormulaire.nom, {'attr':{'placeholder':"Titre de l'entreprise..."}})}}
