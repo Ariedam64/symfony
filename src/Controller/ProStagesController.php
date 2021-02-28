@@ -11,6 +11,7 @@ use App\Entity\Entreprise;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Persistence\ManagerRegistry;
+use App\Form\EntrepriseType;
 
 //use App\Controller\ProStagesController;
 
@@ -32,11 +33,7 @@ class ProStagesController extends AbstractController
         $entreprise = new Entreprise();
 
         //Création du formulaire permattant de saisir une entreprise
-        $formulaireEntreprise = $this->createFormBuilder($entreprise)
-        ->add('nom')
-        ->add('activite')
-        ->add('adresse')
-        ->getForm();
+        $formulaireEntreprise = $this->createForm(EntrepriseType::class, $entreprise);
 
         $formulaireEntreprise->handleRequest($request);
 
@@ -58,12 +55,8 @@ class ProStagesController extends AbstractController
     public function modifierEntreprise(Request $request, ManagerRegistry $manager, Entreprise $entreprise)
     {
 
-        //Création du formulaire permattant de saisir une entreprise
-        $formulaireEntreprise = $this->createFormBuilder($entreprise)
-        ->add('nom')
-        ->add('activite')
-        ->add('adresse')
-        ->getForm();
+        //Création du formulaire permattant de modifier une entreprise
+        $formulaireEntreprise = $this->createForm(EntrepriseType::class, $entreprise);
 
         $formulaireEntreprise->handleRequest($request);
 
@@ -74,7 +67,7 @@ class ProStagesController extends AbstractController
             $manager->getManager()->flush();
 
             //Rediriger l'utilisateur vers la page d'accueil
-            return $this->redirectToRoute('ProStages_index');
+            return $this->redirectToRoute('ProStages_entreprises');
 
         }
 
