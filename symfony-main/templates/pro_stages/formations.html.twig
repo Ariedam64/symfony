@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block titre %}
+<h3> ProStages | Trié par Formations</h3>
+{% endblock %}
+{% block titreStage %}
+Formations proposant des stages
+{% endblock %}
+
+{% block contenuSupp %}
+
+
+<div class="card-deck">
+  {% for formationCourante in formations %}
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{formationCourante.getNom}}</h5>
+      <p class="card-text"></p>
+      <p class="card-text">{{formationCourante.getDescription}}</p>
+      <p class="card-text">Stages proposé : </p>
+      <ul>
+      {% if formationCourante.stages|length > 0 %}
+        {% for stage in formationCourante.stages %}
+          <li>
+            <a href={{path('ProStages_stages',{id:stage.id})}}>{{stage.intitule}}</a>
+          </li>
+        {% endfor %}
+        {% else %}
+          <li>
+            Aucune
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}

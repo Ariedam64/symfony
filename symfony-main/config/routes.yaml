@@ -2,11 +2,6 @@ ProStages_index:
     path: /
     controller: App\Controller\ProStagesController::index
 
-ProStages_stageParEntreprise:
-    path: /stageParEntreprise/{entreprise}
-    controller: App\Controller\ProStagesController::stageParEntreprise
-
-
 ProStages_entreprises:
     path: /entreprises
     controller: App\Controller\ProStagesController::entreprises
@@ -22,7 +17,3 @@ ProStages_stages:
 ProStages_ajoutEntreprise:
     path: /entreprises/ajouter
     controller: App\Controller\ProStagesController::ajouterEntreprise
-
-ProStages_modifierEntreprise:
-    path: /entreprises/modifier/{id}
-    controller: App\Controller\ProStagesController::modifierEntreprise
