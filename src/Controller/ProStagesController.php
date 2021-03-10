@@ -22,7 +22,7 @@ class ProStagesController extends AbstractController
 
         $repositoryStage = $this->getDoctrine()->getRepository(Stage::class);
 
-        $stages =  $repositoryStage->findAll();
+        $stages =  $repositoryStage->allStage();
 
         return $this->render('pro_stages/index.html.twig',['stages'=>$stages]);
     }

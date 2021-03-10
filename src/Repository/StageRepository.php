@@ -46,6 +46,19 @@ class StageRepository extends ServiceEntityRepository
                     ->execute();
     }
 
+    public function allStage(){
+
+      return $this->getEntityManager()
+                  ->createQuery(
+                    'SELECT stage, entreprises
+                    FROM App\Entity\Stage stage
+                    JOIN stage.entreprises entreprises')
+                    ->execute();
+    }
+
+
+
+
 
     /*
     public function findOneBySomeField($value): ?Stage
