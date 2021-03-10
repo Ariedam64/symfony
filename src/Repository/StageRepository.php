@@ -26,7 +26,7 @@ class StageRepository extends ServiceEntityRepository
     public function findByEntreprise($entreprise)
     {
         return $this->createQueryBuilder('stages')
-            ->join('entreprise.stages','stages')
+            ->join('stages.entreprises','entreprise')
             ->andWhere('entreprise.nom = :nomEntreprise')
             ->setParameter('nomEntreprise', $entreprise)
             ->getQuery()

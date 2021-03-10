@@ -22,16 +22,7 @@ class EntrepriseRepository extends ServiceEntityRepository
     // /**
     //  * @return Entreprise[] Returns an array of Entreprise objects
     //  */
-    public function findByEntreprise($entreprise)
-    {
-        return $this->createQueryBuilder('entreprise')
-            ->join('entreprise.stages','stages')
-            ->andWhere('entreprise.nom = :nomEntreprise')
-            ->setParameter('nomEntreprise', $entreprise)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
+
     /*
     public function findOneBySomeField($value): ?Entreprise
     {
