@@ -37,6 +37,16 @@ class ProStagesController extends AbstractController
         return $this->render('pro_stages/stageParEntreprise.html.twig',['stages'=>$stages]);
     }
 
+    public function stageParFormation($formation): Response
+    {
+
+        $repositoryStage = $this->getDoctrine()->getRepository(Stage::class);
+
+        $stages =  $repositoryStage->findByFormation($formation);
+
+        return $this->render('pro_stages/stageParFormation.html.twig',['stages'=>$stages]);
+    }
+
     public function ajouterEntreprise(Request $request, ManagerRegistry $manager)
     {
         //Création d'une entreprise qui sera remplie par le formulaire

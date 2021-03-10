@@ -34,6 +34,18 @@ class StageRepository extends ServiceEntityRepository
         ;
     }
 
+    public function findByFormation($formation)
+    {
+      return $this->getEntityManager()
+                  ->createQuery(
+                    'SELECT stage, formations
+                    FROM App\Entity\Stage stage
+                    JOIN stage.Formation formations
+                    WHERE formations.nom = :nom')
+                    ->setParameter('nom', $formation)
+                    ->execute();
+    }
+
 
     /*
     public function findOneBySomeField($value): ?Stage

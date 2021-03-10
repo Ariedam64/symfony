@@ -6,6 +6,10 @@ ProStages_stageParEntreprise:
     path: /stageParEntreprise/{entreprise}
     controller: App\Controller\ProStagesController::stageParEntreprise
 
+ProStages_stageParFormation:
+    path: /stageParFormation/{formation}
+    controller: App\Controller\ProStagesController::stageParFormation
+
 
 ProStages_entreprises:
     path: /entreprises
