@@ -9,15 +9,20 @@ Entreprises proposant des stages
 {% endblock %}
 
 {% block contenuSupp %}
-<div class="card-deck">
 
+  {% set debutNouvelleLigne = true %}
   {% for entrepriseCourant in entreprises %}
 
+  {% if debutNouvelleLigne == true %}
+    <div class="card-group">
+    {% set debutNouvelleLigne = false %}
+  {% endif %}
+
+  <div class="col-sm-2">
   <div class="card">
 
     <div class="card-body">
-      <a class="nav-link" href="{{path('ProStages_modifierEntreprise',{'id':entrepriseCourant.id})}}"><button type="submit" class="btn btn-dark">Modifier</button></a>
-      <h5 class="card-title">{{entrepriseCourant.getNom}}</h5>
+      <h5 class="card-title">      <div align="right"><a class="nav-link" href="{{path('ProStages_modifierEntreprise',{'id':entrepriseCourant.id})}}"><button type="submit" class="btn btn-dark">Modifier</button></a></div>{{entrepriseCourant.getNom}}</h5>
       <p class="card-text"></p>
       <p class="card-text">{{entrepriseCourant.getActivite}}</p>
       <p class="card-text">{{entrepriseCourant.getAdresse}}</p>
@@ -34,9 +39,16 @@ Entreprises proposant des stages
               <b>Aucun</b>
           </li>
       {% endif %}
+
       </ul>
-     </div>
+   </div>
+  </div>
     </div>
+    {% if loop.index % 6 == 0 %}
+      </div>
+      <br />
+      {% set debutNouvelleLigne = true %}
+    {% endif %}
   {% endfor %}
- </div>
+
 {% endblock %}

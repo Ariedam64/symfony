@@ -6,18 +6,30 @@
 
 {% block contenuSupp %}
 
+  {% set debutNouvelleLigne = true %}
 
-<div class="card-deck">
-{% for stageCourant in stages %}
-  <div class="card">
+  {% for stageCourant in stages %}
 
-    <div class="card-body">
-      <h5 class="card-title"><a href={{path('ProStages_stages',{id:stageCourant.id})}}>{{stageCourant.intitule}}</a></h5>
-      <p class="card-text">Entreprise : {{stageCourant.entreprises.nom}}</p>
+    {% if debutNouvelleLigne == true %}
+      <div class="card-group">
+      {% set debutNouvelleLigne = false %}
+    {% endif %}
+    <div class="col-sm-2">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><a href={{path('ProStages_stages',{id:stageCourant.id})}}>{{stageCourant.intitule}}</a></h5>
+        <p class="card-text">Entreprise : {{stageCourant.entreprises.nom}}</p>
+      </div>
     </div>
-  </div>
-  {% endfor %}
-</div>
+    </div>
 
+
+    {% if loop.index % 6 == 0 %}
+      </div>
+      <br />
+      {% set debutNouvelleLigne = true %}
+    {% endif %}
+
+  {% endfor %}
 
 {% endblock %}

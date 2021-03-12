@@ -21,6 +21,7 @@
 			           </h3>
 		        </div>
 	      </div>
+        </div>
         {% endblock %}
 
         {% block menu %}
@@ -52,23 +53,24 @@
         			</nav>
         		</div>
         	</div>
+
         {% endblock %}
 
         {% block contenu %}
         <div class="row" style="margin-top:15px;">
-		<div class="col-md-12">
-			<div class="card">
-				<h5 class="card-header">
-					{% block titreStage %}
-          Stages disponibles
-          {% endblock %}
-				</h5>
-				<div class="card-body">
-          {% block contenuSupp %}{% endblock %}
-				</div>
-			</div>
-		</div>
-	</div>
+		        <div class="col-md-12">
+			          <div class="card">
+				              <h5 class="card-header">
+					                  {% block titreStage %}
+                            Stages disponibles
+                            {% endblock %}
+				               </h5>
+				               <div class="card-body">
+                          {% block contenuSupp %}{% endblock %}
+				               </div>
+                </div>
+			      </div>
+		    </div>
         {% endblock %}
 
         {% block javascripts %}
