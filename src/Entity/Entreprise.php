@@ -38,6 +38,18 @@ class Entreprise
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\Regex(
+     *     pattern="# [0-9]{5} #",
+     *     message="Manque le code postal"
+     * )
+     * @Assert\Regex(
+     *     pattern="# (avenue|all[eé]e|rue|place|boulevard|impasse|route) #i",
+     *     message="Manque le type de voie"
+     * )
+     * @Assert\Regex(
+     *     pattern="#^[0-9]{1,4} ?(bis|ter|quater)? #i",
+     *     message="Manque le numero de rue"
+     * )
 
      */
     private $adresse;

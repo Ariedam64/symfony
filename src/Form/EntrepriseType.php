@@ -15,6 +15,7 @@ class EntrepriseType extends AbstractType
             ->add('nom')
             ->add('activite')
             ->add('adresse')
+
         ;
     }
 
