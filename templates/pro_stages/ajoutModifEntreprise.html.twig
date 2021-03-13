@@ -18,13 +18,15 @@ Formulaire
 
 <label> Nom </label>
 {{form_widget(vueFormulaire.nom, {'attr':{'placeholder':"Titre de l'entreprise..."}})}}
+{{ form_errors(vueFormulaire.nom) }}
 
 <label> Activite </label>
 {{form_widget(vueFormulaire.activite, {'attr':{'placeholder':"Activité de l'entreprise..."}})}}
+{{ form_errors(vueFormulaire.activite) }}
 
 <label> Adresse </label>
 {{form_widget(vueFormulaire.adresse, {'attr':{'placeholder':"Adresse de l'entreprise..."}})}}
-
+{{ form_errors(vueFormulaire.adresse) }}
 
 {% if action == "ajouter" %}
 <br><button type="submit" class="btn btn-dark">Ajouter l'entreprise</button>
