@@ -6,6 +6,8 @@ use App\Entity\Entreprise;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+
 
 class Entreprise1Type extends AbstractType
 {
@@ -13,8 +15,8 @@ class Entreprise1Type extends AbstractType
     {
         $builder
             ->add('nom')
-            ->add('activite')
-            ->add('adresse')
+            ->add('activite', TextareaType::class)
+            ->add('adresse', TextareaType::class)
             ->add('siteWeb')
         ;
     }

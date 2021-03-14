@@ -8,6 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use App\Entity\Formation;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class StageType extends AbstractType
 {
@@ -15,7 +16,7 @@ class StageType extends AbstractType
     {
         $builder
             ->add('intitule')
-            ->add('mission')
+            ->add('mission', TextareaType::class)
             ->add('adresseMail')
             ->add('entreprises',  Entreprise1Type::class)
             ->add('Formation', EntityType::class, array(
@@ -26,7 +27,7 @@ class StageType extends AbstractType
                 'expanded' => 'true',
             ))
             ;
-            
+
         ;
     }
 

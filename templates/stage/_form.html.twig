@@ -1,5 +1,22 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
 
-    <br/><button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button>
+
+
+<label> <b>Titre</b> </label>
+{{form_widget(form.intitule)}}
+
+<label> <b>Description</b> </label>
+{{form_widget(form.mission)}}
+
+<label> <b>Email</b> </label>
+{{form_widget(form.adresseMail)}}
+
+<label> <b>Entreprise</b> </label>
+{{form_widget(form.entreprises)}}
+
+<label> <b>Le stage est proposé aux formations suivantes</b> </label>
+{{form_widget(form.Formation)}}
+
+<br/><button class="btn btn-success">Enregister</button>
+
 {{ form_end(form) }}
