@@ -56,6 +56,17 @@ class Entreprise
     private $adresse;
 
     /**
+     * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank
+     * @Assert\Url
+     * @Assert\Regex(
+     *     pattern="#[-a-zA-Z0-9@:%_\+.~\#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~\#?&//=]*)?#si",
+     *     message="Cette valeur n'est pas une URL valide "
+     * )
+     */
+    private $siteWeb;
+
+    /**
      * @ORM\OneToMany(targetEntity=Stage::class, mappedBy="entreprises")
      */
     private $stages;
@@ -102,6 +113,18 @@ class Entreprise
     public function setAdresse(string $adresse): self
     {
         $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    public function getSiteWeb(): ?string
+    {
+        return $this->siteWeb;
+    }
+
+    public function setSiteWeb(string $siteWeb): self
+    {
+        $this->siteWeb = $siteWeb;
 
         return $this;
     }

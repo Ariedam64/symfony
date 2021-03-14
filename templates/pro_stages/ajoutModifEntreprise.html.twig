@@ -28,6 +28,10 @@ Formulaire
 {{form_widget(vueFormulaire.adresse, {'attr':{'placeholder':"Adresse de l'entreprise..."}})}}
 {{ form_errors(vueFormulaire.adresse) }}
 
+<label> SiteWeb </label>
+{{form_widget(vueFormulaire.siteWeb, {'attr':{'placeholder':"Site Web de l'entreprise..."}})}}
+{{ form_errors(vueFormulaire.siteWeb) }}
+
 {% if action == "ajouter" %}
 <br><button type="submit" class="btn btn-dark">Ajouter l'entreprise</button>
 {% else %}
