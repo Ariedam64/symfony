@@ -39,7 +39,7 @@ class EntrepriseController extends AbstractController
             $entityManager->persist($entreprise);
             $entityManager->flush();
 
-            return $this->redirectToRoute('entreprise_index');
+            return $this->redirectToRoute('ProStages_entreprises');
         }
 
         return $this->render('entreprise/new.html.twig', [
@@ -69,7 +69,7 @@ class EntrepriseController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('entreprise_index');
+            return $this->redirectToRoute('ProStages_entreprises');
         }
 
         return $this->render('entreprise/edit.html.twig', [
@@ -89,6 +89,6 @@ class EntrepriseController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('entreprise_index');
+        return $this->redirectToRoute('ProStages_entreprises');
     }
 }

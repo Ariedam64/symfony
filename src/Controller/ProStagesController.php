@@ -47,6 +47,17 @@ class ProStagesController extends AbstractController
         return $this->render('pro_stages/stageParFormation.html.twig',['stages'=>$stages]);
     }
 
+      
+    public function entreprises(): Response
+    {
+
+      $repositoryEntreprises = $this->getDoctrine()->getRepository(Entreprise::class);
+
+      $entreprises =  $repositoryEntreprises->findAll();
+
+
+        return $this->render('pro_stages/entreprises.html.twig',['entreprises'=>$entreprises]);
+    }
 
     public function formations(): Response
     {

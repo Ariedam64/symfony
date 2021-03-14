@@ -10,45 +10,51 @@ Entreprises proposant des stages
 
 {% block contenuSupp %}
 
-  {% set debutNouvelleLigne = true %}
-  {% for entrepriseCourant in entreprises %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Activite</th>
+            <th>Adresse</th>
+            <th>SiteWeb</th>
+            <th>Stages Proposé</th>
+            <th>actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entreprise in entreprises %}
 
-  {% if debutNouvelleLigne == true %}
-    <div class="card-group">
-    {% set debutNouvelleLigne = false %}
-  {% endif %}
+    <tr>
+        <td>{{ entreprise.nom }}</td>
+        <td>{{ entreprise.activite }}</td>
+        <td>{{ entreprise.adresse }}</td>
+        <td>{{ entreprise.siteWeb }}</td>
+        <td><ul>
+        {% if entreprise.stages|length > 0 %}
+          {% for stage in entreprise.stages %}
+            <li>
+              <a href={{path('ProStages_stages',{id:stage.id})}}>{{stage.intitule}}</a>
+            </li>
+          {% endfor %}
+        {% else %}
+            <li>
+                <b>Aucun</b>
+            </li>
+        {% endif %}
+        </ul>
+        </td>
+        <td>
 
-  <div class="col-sm-2">
-  <div class="card">
+            <a class="nav-link" href="{{path('entreprise_edit',{'id':entreprise.id}) }}"><button type="submit" class="btn btn-dark">Modifier</button></a>
+        </td>
+    </tr>
+{% else %}
+    <tr>
+        <td colspan="6">Aucune entreprise enregistré</td>
+    </tr>
+{% endfor %}
+</tbody>
+</table>
 
-    <div class="card-body">
-      <h5 class="card-title">      <div align="right"><a class="nav-link" href="{{path('ProStages_modifierEntreprise',{'id':entrepriseCourant.id})}}"><button type="submit" class="btn btn-dark">Modifier</button></a></div>{{entrepriseCourant.getNom}}</h5>
-      <p class="card-text"></p>
-      <p class="card-text">{{entrepriseCourant.getActivite}}</p>
-      <p class="card-text">{{entrepriseCourant.getAdresse}}</p>
-      <p class="card-text">Stages proposé : </p>
-      <ul>
-      {% if entrepriseCourant.stages|length > 0 %}
-        {% for stage in entrepriseCourant.stages %}
-          <li>
-            <a href={{path('ProStages_stages',{id:stage.id})}}>{{stage.intitule}}</a>
-          </li>
-        {% endfor %}
-      {% else %}
-          <li>
-              <b>Aucun</b>
-          </li>
-      {% endif %}
-
-      </ul>
-   </div>
-  </div>
-    </div>
-    {% if loop.index % 6 == 0 %}
-      </div>
-      <br />
-      {% set debutNouvelleLigne = true %}
-    {% endif %}
-  {% endfor %}
 
 {% endblock %}
