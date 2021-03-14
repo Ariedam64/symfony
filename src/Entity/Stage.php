@@ -40,7 +40,7 @@ class Stage
     private $Formation;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Entreprise::class, inversedBy="stages")
+     * @ORM\ManyToOne(targetEntity=Entreprise::class, inversedBy="stages", cascade={"persist"})
      */
     private $entreprises;
 
@@ -125,4 +125,5 @@ class Stage
 
         return $this;
     }
+
 }

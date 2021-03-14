@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block titreStage %}Liste des stages{% endblock %}
+
+{% block contenuSupp %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Intitule</th>
+                <th>Mission</th>
+                <th>AdresseMail</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for stage in stages %}
+            <tr>
+                <td>{{ stage.intitule }}</td>
+                <td>{{ stage.mission }}</td>
+                <td>{{ stage.adresseMail }}</td>
+                <td>
+                    <a class="nav-link" href="{{path('ProStages_stages', {'id': stage.id}) }}"><button type="submit" class="btn btn-dark">Consulter</button></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun stage trouver/td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="nav-link" href="{{path('stage_new') }}"><button type="submit" class="btn btn-primary">Créer un nouveau stage</button></a>
+{% endblock %}

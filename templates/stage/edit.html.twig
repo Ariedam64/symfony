@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block titreStage %}Modification d'un stage{% endblock %}
+
+{% block contenuSupp %}
+
+
+    {{ include('stage/_form.html.twig', {'button_label': 'Enregistrer'}) }}
+    {{ include('stage/_delete_form.html.twig') }}
+
+    <a class="nav-link" href="{{path('stage_index') }}"><button type="submit" class="btn btn-primary">Retour à la liste</button></a>
+
+
+{% endblock %}

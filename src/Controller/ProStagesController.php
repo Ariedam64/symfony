@@ -17,15 +17,7 @@ use App\Form\EntrepriseType;
 
 class ProStagesController extends AbstractController
 {
-    public function index(): Response
-    {
 
-        $repositoryStage = $this->getDoctrine()->getRepository(Stage::class);
-
-        $stages =  $repositoryStage->allStage();
-
-        return $this->render('pro_stages/index.html.twig',['stages'=>$stages]);
-    }
 
     public function stageParEntreprise($entreprise): Response
     {
@@ -47,7 +39,7 @@ class ProStagesController extends AbstractController
         return $this->render('pro_stages/stageParFormation.html.twig',['stages'=>$stages]);
     }
 
-      
+
     public function entreprises(): Response
     {
 

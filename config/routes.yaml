@@ -1,6 +1,6 @@
 ProStages_index:
     path: /
-    controller: App\Controller\ProStagesController::index
+    controller: App\Controller\StageController::index
 
 ProStages_stageParEntreprise:
     path: /stageParEntreprise/{entreprise}

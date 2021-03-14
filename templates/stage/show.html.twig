@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block titreStage %}Stage{% endblock %}
+
+{% block contenuSupp %}
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Intitule</th>
+                <td>{{ stage.intitule }}</td>
+            </tr>
+            <tr>
+                <th>Mission</th>
+                <td>{{ stage.mission }}</td>
+            </tr>
+            <tr>
+                <th>Adresse mail</th>
+                <td>{{ stage.adresseMail }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('stage_index') }}">back to list</a>
+
+    <a href="{{ path('stage_edit', {'id': stage.id}) }}">edit</a>
+
+    {{ include('stage/_delete_form.html.twig') }}
+{% endblock %}
