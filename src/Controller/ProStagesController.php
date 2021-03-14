@@ -47,64 +47,6 @@ class ProStagesController extends AbstractController
         return $this->render('pro_stages/stageParFormation.html.twig',['stages'=>$stages]);
     }
 
-    public function ajouterEntreprise(Request $request, ManagerRegistry $manager)
-    {
-        //Création d'une entreprise qui sera remplie par le formulaire
-        $entreprise = new Entreprise();
-
-        //Création du formulaire permattant de saisir une entreprise
-        $formulaireEntreprise = $this->createForm(EntrepriseType::class, $entreprise);
-
-        $formulaireEntreprise->handleRequest($request);
-
-        if ($formulaireEntreprise->isSubmitted() && $formulaireEntreprise->isValid()){
-
-            //Enregister la ressource en base de donnéelse
-            $manager->getManager()->persist($entreprise);
-            $manager->getManager()->flush();
-
-            //Rediriger l'utilisateur vers la page d'accueil
-            return $this->redirectToRoute('ProStages_index');
-
-        }
-
-        //Ajouter la page présentant le formulaire d'ajout d'une entreprise
-        return $this->render('pro_stages/ajoutModifEntreprise.html.twig',['vueFormulaire' => $formulaireEntreprise->createView(), 'action'=>"ajouter"]);
-    }
-
-    public function modifierEntreprise(Request $request, ManagerRegistry $manager, Entreprise $entreprise)
-    {
-
-        //Création du formulaire permattant de modifier une entreprise
-        $formulaireEntreprise = $this->createForm(EntrepriseType::class, $entreprise);
-
-        $formulaireEntreprise->handleRequest($request);
-
-        if ($formulaireEntreprise->isSubmitted()){
-
-            //Enregister la ressource en base de donnéelse
-            $manager->getManager()->persist($entreprise);
-            $manager->getManager()->flush();
-
-            //Rediriger l'utilisateur vers la page d'accueil
-            return $this->redirectToRoute('ProStages_entreprises');
-
-        }
-
-        //Ajouter la page présentant le formulaire d'ajout d'une entreprise
-        return $this->render('pro_stages/ajoutModifEntreprise.html.twig',['vueFormulaire' => $formulaireEntreprise->createView(), 'action'=>"modifier"]);
-    }
-
-    public function entreprises(): Response
-    {
-
-      $repositoryEntreprises = $this->getDoctrine()->getRepository(Entreprise::class);
-
-      $entreprises =  $repositoryEntreprises->findAll();
-
-
-        return $this->render('pro_stages/entreprises.html.twig',['entreprises'=>$entreprises]);
-    }
 
     public function formations(): Response
     {

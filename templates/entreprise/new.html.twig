@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block titreStage %}New Entreprise{% endblock %}
+
+{% block contenuSupp %}
+
+    {{ include('entreprise/_form.html.twig') }}
+
+    <a class="nav-link" href="{{path('entreprise_index') }}"><button type="submit" class="btn btn-primary">Retour à la liste</button></a>
+{% endblock %}
