@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block titreStage %}Modifier une formation{% endblock %}
+
+{% block contenuSupp %}
+
+ {{ include('formation/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+   </br>  {{ include('formation/_delete_form.html.twig') }}
+
+  <a class="nav-link" href="{{path('ProStages_formations') }}"><button type="submit" class="btn btn-primary">Retour à la liste</button></a>
+
+
+{% endblock %}

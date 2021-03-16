@@ -35,12 +35,12 @@ class Stage
     private $adresseMail;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Formation::class, inversedBy="stages")
+     * @ORM\ManyToMany(targetEntity=Formation::class, inversedBy="stages", cascade={"persist"})
      */
     private $Formation;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Entreprise::class, inversedBy="stages", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity=Entreprise::class, inversedBy="stages")
      */
     private $entreprises;
 
@@ -124,6 +124,11 @@ class Stage
         $this->entreprises = $entreprises;
 
         return $this;
+    }
+
+    public function __toString(){
+      return $this->getIntitule();
+
     }
 
 }

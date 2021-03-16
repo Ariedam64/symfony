@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block titreStage %}Formations{% endblock %}
+
+{% block contenuSupp %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Stages proposé</th>
+                {% if is_granted('ROLE_ADMIN') %}
+                  <th>actions</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+        {% for formation in formations %}
+            <tr>
+                <td>{{ formation.nom }}</td>
+                <td>{{ formation.description }}</td>
+                <td>
+                <ul>
+                {% if formation.stages|length > 0 %}
+                  {% for stage in formation.stages %}
+                    <li>
+                      <a href={{path('ProStages_stages',{id:stage.id})}}>{{stage.intitule}}</a>
+                    </li>
+                  {% endfor %}
+                  {% else %}
+                    <li>
+                      Aucune
+                    </li>
+                  {% endif %}
+                </ul>
+
+                </td>
+                  {% if is_granted('ROLE_ADMIN') %}
+                <td>
+                    <a class="nav-link" href="{{path('formation_edit',{'id':formation.id}) }}"><button type="submit" class="btn btn-dark">Modifier</button></a>
+                </td>
+                {% endif %}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucune formation trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% if is_granted('ROLE_ADMIN') %}
+      <a class="nav-link" href="{{path('formation_new') }}"><button type="submit" class="btn btn-primary">Créer une nouvelle formation</button></a>
+    {% endif %}
+{% endblock %}
