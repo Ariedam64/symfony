@@ -14,12 +14,33 @@
                 <th>Description</th>
                 <td>{{ formation.description }}</td>
             </tr>
+            <tr>
+                <th>Stages proposés par cette formation</th>
+                <td>
+                <ul>
+                {% if formation.stages|length > 0 %}
+                  {% for stage in formation.stages %}
+                    <li>
+                      <a href={{path('ProStages_stages',{id:stage.id})}}>{{stage.intitule}}</a>
+                    </li>
+                  {% endfor %}
+                  {% else %}
+                    <li>
+                      Aucune
+                    </li>
+                  {% endif %}
+                </ul>
+                </td>
+            </tr>
         </tbody>
     </table>
+    {% if is_granted('ROLE_ADMIN') %}
 
-    <a href="{{ path('formation_index') }}">Revenir à la liste</a>
-
-    <a href="{{ path('formation_edit', {'id': formation.id}) }}">Modifier</a>
-
+    <a class="nav-link" href="{{path('formation_edit', {'id': formation.id}) }}"><button type="submit" class="btn btn-dark">Modifier</button></a>
     {{ include('formation/_delete_form.html.twig') }}
+    {% endif %}
+
+    <a class="nav-link" href="{{path('formation_index') }}"><button type="submit" class="btn btn-primary">Revenir à la liste</button></a>
+
+
 {% endblock %}

@@ -37,7 +37,8 @@
 
                 </td>
                   {% if is_granted('ROLE_ADMIN') %}
-                <td>
+                  <td>
+                      <a class="nav-link" href="{{path('formation_show',{'id':formation.id}) }}"><button type="submit" class="btn btn-dark">Consulter</button></a>
                     <a class="nav-link" href="{{path('formation_edit',{'id':formation.id}) }}"><button type="submit" class="btn btn-dark">Modifier</button></a>
                 </td>
                 {% endif %}
@@ -49,7 +50,4 @@
         {% endfor %}
         </tbody>
     </table>
-    {% if is_granted('ROLE_ADMIN') %}
-      <a class="nav-link" href="{{path('formation_new') }}"><button type="submit" class="btn btn-primary">Créer une nouvelle formation</button></a>
-    {% endif %}
 {% endblock %}

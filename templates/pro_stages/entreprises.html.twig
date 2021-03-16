@@ -1,9 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% block titre %}
-<h3> ProStages | Trié par Entreprises</h3>
-{% endblock %}
-
 {% block titreStage %}
 Entreprises proposant des stages
 {% endblock %}
@@ -48,7 +44,7 @@ Entreprises proposant des stages
         {% if is_granted('ROLE_ADMIN') %}
         <td>
             <a class="nav-link" href="{{path('entreprise_edit',{'id':entreprise.id}) }}"><button type="submit" class="btn btn-dark">Modifier entreprise</button></a>
-            
+
         </td>
         {% endif %}
     </tr>

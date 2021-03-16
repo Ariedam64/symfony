@@ -1,4 +1,14 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    </br><button class="btn btn-success">{{ button_label|default('Sauvegarder') }}</button>
+
+<label> <b>Nom</b> </label>
+{{form_widget(form.nom)}}
+
+<label> <b>Description</b> </label>
+{{form_widget(form.description)}}
+
+<label> <b>La formation est proposé aux stages suivants</b> </label>
+{{form_widget(form.stages)}}
+
+<br/><button class="btn btn-success">Enregister</button>
+
 {{ form_end(form) }}

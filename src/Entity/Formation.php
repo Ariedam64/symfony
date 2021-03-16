@@ -30,7 +30,7 @@ class Formation
     private $description;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Stage::class, mappedBy="Formation", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity=Stage::class, mappedBy="Formation")
      */
     private $stages;
 

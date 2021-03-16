@@ -32,7 +32,11 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
          - { path: ^/entreprise/new, roles: ROLE_ADMIN }
+         - { path: ^/formation/new, roles: ROLE_ADMIN }
          - { path: ^/stage/new, roles: [ROLE_ADMIN, ROLE_USER] }
+         - { path: ^/entreprise/edit, roles: ROLE_ADMIN }
+         - { path: ^/formation/edit, roles: ROLE_ADMIN }
+         - { path: ^/stage/edit, roles: [ROLE_ADMIN] }
         # - { path: ^/profile, roles: ROLE_USER }
 
     encoders:
