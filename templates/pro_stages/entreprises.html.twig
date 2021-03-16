@@ -18,7 +18,9 @@ Entreprises proposant des stages
             <th>Adresse</th>
             <th>SiteWeb</th>
             <th>Stages Proposé</th>
+            {% if is_granted('ROLE_ADMIN') %}
             <th>actions</th>
+            {% endif %}
         </tr>
     </thead>
     <tbody>
@@ -43,10 +45,12 @@ Entreprises proposant des stages
         {% endif %}
         </ul>
         </td>
+        {% if is_granted('ROLE_ADMIN') %}
         <td>
-
-            <a class="nav-link" href="{{path('entreprise_edit',{'id':entreprise.id}) }}"><button type="submit" class="btn btn-dark">Modifier</button></a>
+            <a class="nav-link" href="{{path('entreprise_edit',{'id':entreprise.id}) }}"><button type="submit" class="btn btn-dark">Modifier entreprise</button></a>
+            
         </td>
+        {% endif %}
     </tr>
 {% else %}
     <tr>

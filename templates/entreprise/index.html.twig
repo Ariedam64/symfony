@@ -26,7 +26,9 @@
                 <td>{{ entreprise.siteWeb }}</td>
                 <td>
                     <a class="nav-link" href="{{path('entreprise_show',{'id':entreprise.id}) }}"><button type="submit" class="btn btn-dark">Consulter</button></a>
-                    <a class="nav-link" href="{{path('entreprise_edit',{'id':entreprise.id}) }}"><button type="submit" class="btn btn-dark">Modifier</button></a>
+                      {% if is_granted('ROLE_ADMIN') %}
+                        <a class="nav-link" href="{{path('entreprise_edit',{'id':entreprise.id}) }}"><button type="submit" class="btn btn-dark">Modifier</button></a>
+                        {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -36,5 +38,7 @@
         {% endfor %}
         </tbody>
     </table>
+    {% if is_granted('ROLE_ADMIN') %}
     <a class="nav-link" href="{{path('entreprise_new') }}"><button type="submit" class="btn btn-primary">Créer une nouvelle entreprise</button></a>
+    {% endif %}
 {% endblock %}

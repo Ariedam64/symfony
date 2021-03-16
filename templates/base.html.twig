@@ -13,22 +13,14 @@
     </head>
     <body>
       {% block titre %}
-      <div class="container-fluid">
-        <div class="row">
-		        <div class="col-md-12">
-			           <h3>
-				               ProStages
-			           </h3>
-		        </div>
-	      </div>
-        </div>
+
         {% endblock %}
 
         {% block menu %}
         <div class="row">
 
         		<div class="col-md-12">
-        			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        			<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
 <i class="icon-filter-1"></i>
         				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         					<span class="navbar-toggler-icon"></span>
@@ -43,13 +35,26 @@
         							 <a class="nav-link" href="{{path('ProStages_formations')}}"> | Formations</a>
         						</li>
                   </ul>
+
                   <ul class="navbar-nav ms-auto">
+                      <span class="navbar-text">
+                          <h2>ProStages</h2>
+                      </span>
+                  </ul>
+
+                  <ul class="navbar-nav ms-auto">
+                    {% if is_granted('ROLE_ADMIN') %}
                       <li class="nav-item">
-        							    <a class="nav-link" href="{{path('entreprise_new')}}"> Ajouter une entreprise |  </a>
+        							    <a class="nav-link" href="{{path('entreprise_new')}}"><i class="icon-plus-1"></i> Ajouter une entreprise |  </a>
         						  </li>
+                    {% endif %}
+
+
+                      {% if is_granted('ROLE_USER') %}
                       <li class="nav-item">
-        							    <a class="nav-link" href="{{path('stage_new')}}">  Ajouter un stage |  </a>
+        							    <a class="nav-link" href="{{path('stage_new')}}"> <i class="icon-plus-1"></i> Ajouter un stage |  </a>
         						  </li>
+                      {% endif %}
 
 
                       {% if is_granted('ROLE_USER') %}
@@ -63,6 +68,7 @@
                           <i class="icon-user"></i>Connexion</a>
                       </li>
                       {% endif %}
+
 
 
 
