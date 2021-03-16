@@ -60,12 +60,16 @@
                       {% if is_granted('ROLE_USER') %}
                       <li class="nav-item active">
                         <a class="nav-link" href="{{path('app_logout')}}">
-                          <i class="icon-user"></i>Deconnexion</a>
+                          <i class="icon-logout"></i>Deconnexion</a>
                       </li>
                       {% else %}
                       <li class="nav-item active">
                         <a class="nav-link" href="{{path('app_login')}}">
-                          <i class="icon-user"></i>Connexion</a>
+                          <i class="icon-login"></i>Connexion</a>
+                      </li>
+                      <li class="nav-item active">
+                        <a class="nav-link" href="{{path('app_register')}}">
+                          <i class="icon-user-plus"></i>Inscription</a>
                       </li>
                       {% endif %}
 
