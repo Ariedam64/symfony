@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Form\UserType;
 use App\Entity\User;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class SecurityController extends AbstractController
 {
@@ -42,18 +43,26 @@ class SecurityController extends AbstractController
     /**
      * @Route("/register", name="app_register", methods={"GET","POST"})
      */
-    public function inscription(Request $request): Response
+    public function inscription(Request $request, UserPasswordEncoderInterface $encoder): Response
     {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            //$entityManager = $this->getDoctrine()->getManager();
-            //$entityManager->persist($user);
-            //$entityManager->flush();
 
-            return $this->redirectToRoute('stage_index');
+          //Attribuer un rôle à l'utilisateurs
+          $user->setRoles(['ROLE_USER']);
+
+          //Encoder le mot de passe de l'utilisateur
+          $encodedPassword = $encoder->encodePassword($user, $user->getPassword());
+          $user->setPassword($encodedPassword);
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_login');
         }
 
         return $this->render('security/register.html.twig', ['form' => $form->createView()]);
