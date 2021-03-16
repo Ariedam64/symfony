@@ -26,7 +26,7 @@ class StageController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="stage_new", methods={"GET","POST"})
+     * @Route("/both/new", name="stage_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
