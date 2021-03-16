@@ -7,11 +7,27 @@ use Doctrine\Persistence\ObjectManager;
 use App\Entity\Entreprise;
 use App\Entity\Formation;
 use App\Entity\Stage;
+use App\Entity\User;
 
 class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
+
+      //Création de deux utilisateurs de test
+      $admin = new User();
+      $admin->setEmail("admin@free.fr");
+      $admin->setRoles(["ROLE_USER", "ROLE_ADMIN"]);
+      $admin->setPassword('$2y$13$eOXddywHkvCSOt5I0kEfee3ZxcJV2guMkVsmIsBp/lc5srFzkJLDe');
+      $manager->persist($admin);
+
+      $user = new User();
+      $user->setEmail("user@free.fr");
+      $user->setRoles(["ROLE_USER"]);
+      $user->setPassword('$2y$13$zGuMVx4HNDJT55bN9//M0u8SeLZ2ReOO6AJ5mqxKKcW6oGG.OBTxi');
+      $manager->persist($user);
+
+
         //Creation d'un générateur de données Faker
         $faker = \Faker\Factory::create('fr_FR');
 
@@ -40,6 +56,7 @@ class AppFixtures extends Fixture
             $entreprise->setNom($faker->company);
             $entreprise->setActivite($faker->jobTitle);
             $entreprise->setAdresse($faker->address);
+            $entreprise->setSiteWeb($faker->url);
             $manager->persist($entreprise);
 
             $nbStages = $faker->numberBetween($min=0, $max=2);

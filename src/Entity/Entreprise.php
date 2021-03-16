@@ -56,7 +56,7 @@ class Entreprise
     private $adresse;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
      * @Assert\Url
      * @Assert\Regex(
