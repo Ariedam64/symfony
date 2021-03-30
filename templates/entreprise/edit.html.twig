@@ -4,9 +4,10 @@
 
 {% block contenuSupp %}
 
-    {{ include('entreprise/_form.html.twig', {'button_label': 'Enregistrer'}) }}<br/>
+    <div class="row">
+      {{ include('entreprise/_form.html.twig', {'button_label': 'Enregistrer'}) }}
       {{ include('entreprise/_delete_form.html.twig') }}
-
+    </div>
     <a class="nav-link" href="{{path('ProStages_entreprises') }}"><button type="submit" class="btn btn-primary">Retour à la liste</button></a>
 
 

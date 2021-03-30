@@ -18,15 +18,7 @@ class FormationType extends AbstractType
         $builder
             ->add('nom')
             ->add('description')
-            ->add('stages', EntityType::class, array(
-                'class' => Stage::class,
-                'choice_label' => 'intitule',
-
-                'multiple' => 'true',
-                'expanded' => 'true',
-            ))
-            ;
-
+            ->add('stages')
         ;
     }
     public function configureOptions(OptionsResolver $resolver)
