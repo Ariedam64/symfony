@@ -1,6 +1,49 @@
 easy_admin:
+    site_name: ProStage
+    list:
+      collapse_actions: true
     entities:
-        - App\Entity\Stage
-        - App\Entity\Formation
-        - App\Entity\Entreprise
-        - App\Entity\User
+      Stage:
+        class: App\Entity\Stage
+        label: 'Stages'
+        list:
+          title: 'Liste des %%entity_label%%'
+        show:
+          title: 'Stage n° %%entity_id%%'
+        new:
+          title: 'Ajout d''un stage'
+      Formation:
+        class: App\Entity\Formation
+        label: 'Formations'
+        list:
+          title: 'Liste des %%entity_label%%'
+        show:
+          title: 'Formation n° %%entity_id%%'
+        new:
+          title: 'Ajout d''une formation'
+      Entreprise:
+        class: App\Entity\Entreprise
+        label: 'Entreprises'
+        list:
+          title: 'Liste des %%entity_label%%'
+        show:
+          title: 'Entreprise n° %%entity_id%%'
+        new:
+          title: 'Ajout d''une entreprise'
+      User:
+        class: App\Entity\User
+        label: 'Utilisateurs'
+        list:
+          title: 'Liste des %%entity_label%%'
+        show:
+          title: 'Utilisateur n° %%entity_id%%'
+        new:
+          title: 'Ajout d''un Utilisateur'
+    design:
+        brand_color: '#CD00FF'
+        menu:
+          - { entity: 'Stage', icon: 'briefcase'}
+          - { entity: 'Formation', icon: 'graduation-cap'}
+          - { entity: 'Entreprise', icon: 'building'}
+          - { entity: 'User', icon: 'user'}
+          - { label: 'Retour à l''accueil',route: 'ProStages_index', icon: 'home'}
