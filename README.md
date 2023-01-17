@@ -1,7 +1,5 @@
 # symfony
 
-TP1 :
-
 Route de la requete en QueryBuilder : stageParEntreprise/{nom_Entreprise}
 Exemple avec une entreprise déjà existante : stageParEnterprise/Grondin
 
